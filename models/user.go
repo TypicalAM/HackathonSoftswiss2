@@ -2,6 +2,7 @@ package models
 
 import (
 	"log"
+	"time"
 
 	"gorm.io/gorm"
 )
@@ -26,6 +27,20 @@ type Profile struct {
 	Trash             []Product `gorm:"many2many:profile_trash" json:"-"`
 }
 
+// ProfileTrash is a through table in the many2many relationship between Profile and thrown away Products.
+type ProfileTrash struct {
+	ID        uint
+	ProfileID uint
+	ProductID uint
+	CreatedAt time.Time
+}
+
+// BeforeCreate is a hook that is called to hash the password.
+func (ProfileTrash) BeforeCreate(tx *gorm.DB) (err error) {
+	tx.Statement.SetColumn("CreatedAt", time.Now())
+	return tx.Error
+}
+
 // AfterCreate is a hook that is called to make sure that a profile is created for the user.
 func (u *User) AfterCreate(tx *gorm.DB) (err error) {
 	log.Println("Creating profile for user", u.Username)
@@ -44,8 +59,8 @@ func (u *User) AfterCreate(tx *gorm.DB) (err error) {
 		UserID:      u.ID,
 		DisplayName: u.Username,
 		// TODO: Get default image URL from config
-		ImageURL: "https://www.stockvault.net/data/2009/07/28/109653/preview16.jpg",
-		TotalSavedMass: 0,
+		ImageURL:          "https://www.stockvault.net/data/2009/07/28/109653/preview16.jpg",
+		TotalSavedMass:    0,
 		TotalPreventedCO2: 0,
 	}
 

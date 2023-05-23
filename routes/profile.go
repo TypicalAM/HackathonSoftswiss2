@@ -16,18 +16,29 @@ func (con controller) Profile(c *gin.Context) {
 		return
 	}
 
-	var trash []models.Product
-	if err := con.db.Model(&user.Profile).Association("Trash").Find(&trash); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "cannot find your trash"})
+	var relations []models.ProfileTrash
+	if err := con.db.Model(models.ProfileTrash{}).Where("profile_id = ?", user.Profile.ID).Find(&relations).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "cannot find your relations"})
 		return
 	}
 
-	sort.Slice(trash, func(i, j int) bool {
-		return trash[i].CreatedAt.After(trash[j].CreatedAt)
+	sort.Slice(relations, func(i, j int) bool {
+		return relations[i].CreatedAt.After(relations[j].CreatedAt)
 	})
 
+	var trash []models.Product
+	for _, relation := range relations {
+		var product models.Product
+		if err := con.db.Model(models.Product{}).Where("id = ?", relation.ProductID).First(&product).Error; err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "cannot find your trash"})
+			return
+		}
+
+		trash = append(trash, product)
+	}
+
 	c.JSON(http.StatusOK, gin.H{
-		"profile":          user.Profile,
-		"trash":            trash,
+		"profile": user.Profile,
+		"trash":   trash,
 	})
 }

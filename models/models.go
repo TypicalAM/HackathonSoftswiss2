@@ -21,6 +21,11 @@ func New(cfg *config.Config) (*gorm.DB, error) {
 
 // Migrate migrates the database.
 func Migrate(db *gorm.DB) error {
+	if err := db.SetupJoinTable(&Profile{}, "Trash", &ProfileTrash{}); err != nil {
+		return err
+	}
+
+
 	if err := db.AutoMigrate(&User{}, &Product{}, &Session{}, &Profile{}); err != nil {
 		return err
 	}

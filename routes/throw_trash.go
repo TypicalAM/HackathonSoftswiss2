@@ -31,8 +31,12 @@ func (con controller) ThrowAway(c *gin.Context) {
 		return
 	}
 
-	if err := con.db.Model(&user.Profile).Association("Trash").Append(&product); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "cannot throw trash"})
+	if err := con.db.Model(&models.ProfileTrash{}).Create(&models.ProfileTrash{
+		ProfileID: user.Profile.ID,
+		ProductID: product.ID,
+	}); err.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "cannot create relation"})
+		log.Println(err)
 		return
 	}
 
