@@ -1,0 +1,106 @@
+[
+    {
+    "name" : "Nutella - Ferrero - 400 g",
+    "image_url" : "https://images.openfoodfacts.org/images/products/301/762/042/2003/front_fr.433.400.jpg",
+    "co2" : 600,
+    "mass": 200,
+    "ean" : "3017620422003",
+    "type_of_trash": 1
+    },
+    {
+    "name" : "Coca-Cola puszka - 330ml",
+    "image_url" : "https://images.openfoodfacts.org/images/products/544/900/000/0996/front_pl.364.400.jpg",
+    "co2" : 100,
+    "mass": 15,
+    "ean" : "5449000000996",
+    "type_of_trash": 2
+    },
+    {
+    "name" : "Coca-Cola Zero - 330 ml",
+    "image_url" : "https://images.openfoodfacts.org/images/products/544/900/013/1805/front_pl.198.400.jpg",
+    "co2" : 100,
+    "mass": 15,
+    "ean" : "5449000131805",
+    "type_of_trash": 2
+    },
+    {
+    "name" : "Mleko migdałowe - Alpro - 1 l",
+    "image_url" : "https://images.openfoodfacts.org/images/products/541/118/811/2709/front_pl.368.400.jpg",
+    "co2" : 85,
+    "mass": 30,
+    "ean" : "5411188112709",
+    "type_of_trash": 0
+    },
+    {
+    "name" : "Coca-Cola 1.5 - 1.5 L",
+    "image_url" : "https://images.openfoodfacts.org/images/products/544/900/000/0439/front_pl.161.400.jpg",
+    "co2" : 150,
+    "mass": 50,
+    "ean" : "5449000000439",
+    "type_of_trash": 2
+    },
+    {
+    "name" : "Snickers Bar - Mars - 50 g",
+    "image_url" : "https://images.openfoodfacts.org/images/products/500/015/946/1122/front_en.185.400.jpg",
+    "co2" : 3,
+    "mass": 1,
+    "ean" : "5000159461122",
+    "type_of_trash": 2
+    },
+    {
+    "name" : "Kinder Bueno - Ferrero - 43 g",
+    "image_url" : "https://images.openfoodfacts.org/images/products/80052760/front_pl.53.400.jpg",
+    "co2" : 3,
+    "mass": 1,
+    "ean" : "80052760",
+    "type_of_trash": 2
+    },
+    {
+    "name" : "Mars - 51 g",
+    "image_url" : "https://images.openfoodfacts.org/images/products/500/015/940/7236/front_fr.78.400.jpg",
+    "co2" : 3,
+    "mass": 1,
+    "ean" : "5000159407236",
+    "type_of_trash": 2
+    },
+    {
+    "name" : "Napój kokosowy z dodatkiem ryżu, z wapniem i witaminami. - Alpro - 1 l",
+    "image_url" : "https://images.openfoodfacts.org/images/products/541/118/811/6592/front_en.306.400.jpg",
+    "co2" : 85,
+    "mass": 30,
+    "ean" : "5411188116592",
+    "type_of_trash": 0
+    },
+    {
+    "name" : "Oliwa z oliwek extra virgin - Carrefour Bio - 1 l",
+    "image_url" : "https://images.openfoodfacts.org/images/products/356/007/091/0366/front_fr.70.400.jpg",
+    "co2" : 1500,
+    "mass": 500,
+    "ean" : "3560070910366",
+    "type_of_trash": 1
+    },
+    {
+    "name" : "Rogalik 7days 60g - 7 DAYS - 65 g",
+    "image_url" : "https://images.openfoodfacts.org/images/products/520/136/052/1210/front_pl.48.400.jpg",
+    "co2" : 15,
+    "mass": 5,
+    "ean" : "5201360521210",
+    "type_of_trash": 2
+    },
+		{
+    "name": "Hardmade beer & lemonade",
+    "image_url": "https://images.openfoodfacts.org/images/products/590/135/911/4507/front_en.4.full.jpg",
+    "co2": 114,
+    "ean": "5901359114507",
+    "mass": 66,
+    "type_of_trash": 1
+  	},
+		{
+    "name" : "Cisowianka NGaz 1.5 - 1.5 l",
+    "image_url" : "https://images.openfoodfacts.org/images/products/590/207/800/0201/front_pl.22.400.jpg",
+    "co2" : 125,
+    "mass": 37,
+    "ean" : "5902078000201",
+    "type_of_trash": 2
+    }
+]

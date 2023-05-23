@@ -13,8 +13,10 @@ const (
 )
 
 type Product struct {
-	gorm.Model  `json:"-"`
-	EAN         string       `gorm:"unique" json:"ean"`
-	Name        string       `json:"name"`
-	TypeOfTrash TrashBinType `json:"type_of_trash"`
+	gorm.Model           `json:"-"`
+	EAN                  string       `gorm:"unique" json:"ean"`
+	Name                 string       `json:"name"`
+	CO2EmissionPrevented int          `json:"emission_prevented"`
+	Mass                 int          `json:"mass"`
+	TypeOfTrash          TrashBinType `json:"type_of_trash"`
 }
