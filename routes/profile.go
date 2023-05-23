@@ -26,7 +26,7 @@ func (con controller) Profile(c *gin.Context) {
 		return relations[i].CreatedAt.After(relations[j].CreatedAt)
 	})
 
-	var trash []models.Product
+	trash := make([]models.Product, 0)
 	for _, relation := range relations {
 		var product models.Product
 		if err := con.db.Model(models.Product{}).Where("id = ?", relation.ProductID).First(&product).Error; err != nil {
