@@ -59,7 +59,7 @@ func (u *User) AfterCreate(tx *gorm.DB) (err error) {
 		UserID:      u.ID,
 		DisplayName: u.Username,
 		// TODO: Get default image URL from config
-		ImageURL:          "https://www.stockvault.net/data/2009/07/28/109653/preview16.jpg",
+		ImageURL:          "https://source.boringavatars.com/",
 		TotalSavedMass:    0,
 		TotalPreventedCO2: 0,
 	}
