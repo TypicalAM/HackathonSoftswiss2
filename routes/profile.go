@@ -2,6 +2,7 @@ package routes
 
 import (
 	"net/http"
+	"sort"
 
 	"github.com/TypicalAM/HackathonSoftswiss2/models"
 	"github.com/gin-gonic/gin"
@@ -20,6 +21,10 @@ func (con controller) Profile(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "cannot find your trash"})
 		return
 	}
+
+	sort.Slice(trash, func(i, j int) bool {
+		return trash[i].CreatedAt.After(trash[j].CreatedAt)
+	})
 
 	c.JSON(http.StatusOK, gin.H{
 		"profile": user.Profile,
