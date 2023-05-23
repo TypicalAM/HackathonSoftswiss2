@@ -13,6 +13,7 @@ func (con controller) CheckEAN(c *gin.Context) {
 	var product models.Product
 	if res := con.db.Where("EAN = ?", ean).First(&product); res.Error != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Product not found"})
+		return
 	}
 
 	c.JSON(http.StatusOK, gin.H{"product": product})
