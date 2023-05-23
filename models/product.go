@@ -19,4 +19,5 @@ type Product struct {
 	CO2EmissionPrevented int          `json:"emission_prevented"`
 	Mass                 int          `json:"mass"`
 	TypeOfTrash          TrashBinType `json:"type_of_trash"`
+	ImageURL             string       `json:"image_url"`
 }

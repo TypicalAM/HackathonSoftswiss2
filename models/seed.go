@@ -112,6 +112,7 @@ func createProducts(db *gorm.DB) error {
 			Mass:                 product.Mass,
 			EAN:                  product.EAN,
 			TypeOfTrash:          product.BinType,
+			ImageURL:             product.ImageURL,
 		})
 	}
 
