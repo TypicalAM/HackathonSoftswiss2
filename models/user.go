@@ -17,11 +17,13 @@ type User struct {
 
 // Profile holds information about a user's profile.
 type Profile struct {
-	gorm.Model  `json:"-"`
-	UserID      uint      `gorm:"unique" json:"-"`
-	DisplayName string    `json:"display_name"`
-	ImageURL    string    `json:"image_url"`
-	Trash       []Product `gorm:"many2many:profile_trash" json:"-"`
+	gorm.Model        `json:"-"`
+	UserID            uint      `gorm:"unique" json:"-"`
+	DisplayName       string    `json:"display_name"`
+	ImageURL          string    `json:"image_url"`
+	TotalSavedMass    int       `json:"total_saved_mass"`
+	TotalPreventedCO2 int       `json:"total_prevented_co2"`
+	Trash             []Product `gorm:"many2many:profile_trash" json:"-"`
 }
 
 // AfterCreate is a hook that is called to make sure that a profile is created for the user.
@@ -43,6 +45,8 @@ func (u *User) AfterCreate(tx *gorm.DB) (err error) {
 		DisplayName: u.Username,
 		// TODO: Get default image URL from config
 		ImageURL: "https://www.stockvault.net/data/2009/07/28/109653/preview16.jpg",
+		TotalSavedMass: 0,
+		TotalPreventedCO2: 0,
 	}
 
 	if res := tx.Create(&profile); res.Error != nil {

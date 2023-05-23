@@ -27,7 +27,7 @@ func (con controller) Profile(c *gin.Context) {
 	})
 
 	c.JSON(http.StatusOK, gin.H{
-		"profile": user.Profile,
-		"trash":   trash,
+		"profile":          user.Profile,
+		"trash":            trash,
 	})
 }

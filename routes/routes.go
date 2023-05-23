@@ -56,6 +56,7 @@ func New(db *gorm.DB, cfg *config.Config) (*gin.Engine, error) {
 	products.Use(middleware.Throttle(cfg.RequestsPerMin))
 	products.GET("/check/:EAN", controller.CheckEAN)
 	products.POST("/throw", controller.ThrowAway)
+	products.GET("/stats", controller.GlobalInfo)
 
 	return router, nil
 }
