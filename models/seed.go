@@ -137,7 +137,7 @@ func createAssociations(db *gorm.DB) error {
 	}
 
 	for _, user := range users {
-		if db.Model(&user).Association("Trash").Count() > 0 {
+		if db.Model(&user.Profile).Association("Trash").Count() > 0 {
 			return nil
 		}
 
