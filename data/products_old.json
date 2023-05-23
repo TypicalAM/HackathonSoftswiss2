@@ -29,7 +29,7 @@
     "co2" : 85,
     "mass": 30,
     "ean" : "5411188112709",
-    "type_of_trash": 2
+    "type_of_trash": 0
     },
     {
     "name" : "Coca-Cola 1.5 - 1.5 L",
@@ -69,7 +69,7 @@
     "co2" : 85,
     "mass": 30,
     "ean" : "5411188116592",
-    "type_of_trash": 2
+    "type_of_trash": 0
     },
     {
     "name" : "Oliwa z oliwek extra virgin - Carrefour Bio - 1 l",
@@ -87,15 +87,15 @@
     "ean" : "5201360521210",
     "type_of_trash": 2
     },
-    {
-    "name" : "Sos Sojowy - TaoTao - 150 ml",
-    "image_url" : "https://images.openfoodfacts.org/images/products/590/188/222/0614/front_pl.4.400.jpg",
-    "co2" : 60,
-    "mass": 116,
-    "ean" : "5901882220614",
+		{
+    "name": "Hardmade beer & lemonade",
+    "image_url": "https://images.openfoodfacts.org/images/products/590/135/911/4507/front_en.4.full.jpg",
+    "co2": 114,
+    "ean": "5901359114507",
+    "mass": 66,
     "type_of_trash": 1
-    },
-    {
+  	},
+		{
     "name" : "Cisowianka NGaz 1.5 - 1.5 l",
     "image_url" : "https://images.openfoodfacts.org/images/products/590/207/800/0201/front_pl.22.400.jpg",
     "co2" : 125,
