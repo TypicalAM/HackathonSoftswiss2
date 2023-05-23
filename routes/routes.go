@@ -35,6 +35,7 @@ func New(db *gorm.DB, cfg *config.Config) (*gin.Engine, error) {
 
 	// Set up the api
 	api := router.Group("/api")
+	api.GET("/stats", controller.GlobalInfo)
 
 	// Non-Authorized routes, we cannot access with an active session
 	noAuth := api.Group("/")
@@ -42,6 +43,7 @@ func New(db *gorm.DB, cfg *config.Config) (*gin.Engine, error) {
 	noAuth.Use(middleware.Throttle(cfg.RequestsPerMin))
 	noAuth.POST("/register", controller.Register)
 	noAuth.POST("/login", controller.Login)
+
 
 	// Authorized routes, we can access with only an active session
 	auth := api.Group("/")
@@ -56,7 +58,6 @@ func New(db *gorm.DB, cfg *config.Config) (*gin.Engine, error) {
 	products.Use(middleware.Throttle(cfg.RequestsPerMin))
 	products.GET("/check/:EAN", controller.CheckEAN)
 	products.POST("/throw", controller.ThrowAway)
-	products.GET("/stats", controller.GlobalInfo)
 
 	return router, nil
 }
