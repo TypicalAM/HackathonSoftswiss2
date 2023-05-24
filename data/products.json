@@ -102,5 +102,13 @@
     "mass": 37,
     "ean" : "5902078000201",
     "type_of_trash": 2
-    }
+    },
+		{
+    "name" : "10 świeżych jaj L - Augustyniak - 10 szt.",
+    "image_url" : "https://images.openfoodfacts.org/images/products/590/635/400/0077/front_pl.4.full.jpg",
+    "co2" : 150,
+    "mass": 43,
+    "ean" : "5906354000077",
+    "type_of_trash": 0
+		}
 ]

@@ -132,6 +132,35 @@ func createAssociations(db *gorm.DB) error {
 		return err
 	}
 
+	var user User
+	if err := db.Model(&user).Preload("Profile").Where("username = ?", "test").First(&user).Error; err != nil {
+		return err
+	}
+
+	if db.Model(&user.Profile).Association("Trash").Count() > 0 {
+		log.Println("num of trash for user", user.Username, ":", db.Model(&user.Profile).Association("Trash").Count())
+		return nil
+	}
+
+	log.Println("num of trash for user", user.Username, ":", 1)
+	numOfTrash := rand.Intn(10) + 1
+	for i := 0; i < numOfTrash; i++ {
+		// It is slow, but it works.
+		num := rand.Intn(len(products))
+		if err := db.Model(&user.Profile).Association("Trash").Append(&products[num]); err != nil {
+			return err
+		}
+
+		if res := db.Model(&user.Profile).Update("total_saved_mass", user.Profile.TotalSavedMass+products[num].Mass); res.Error != nil {
+			return res.Error
+		}
+
+		if res := db.Model(&user.Profile).Update("total_prevented_co2", user.Profile.TotalPreventedCO2+products[num].CO2EmissionPrevented); res.Error != nil {
+			return res.Error
+		}
+
+	}
+
 	var users []User
 	if err := db.Preload("Profile").Find(&users).Error; err != nil {
 		return err
