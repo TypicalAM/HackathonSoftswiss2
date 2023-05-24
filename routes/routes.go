@@ -35,7 +35,7 @@ func New(db *gorm.DB, cfg *config.Config) (*gin.Engine, error) {
 
 	// Set up the api
 	api := router.Group("/api")
-	api.GET("/stats", controller.GlobalInfo)
+	api.GET("/products/stats", controller.GlobalInfo)
 
 	// Non-Authorized routes, we cannot access with an active session
 	noAuth := api.Group("/")
